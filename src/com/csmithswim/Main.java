@@ -1,8 +1,42 @@
 package com.csmithswim;
 
-public class Main {
+import java.util.*;
+import java.io.*;
+
+class Calculator {
+    int power(int n, int p){
+        if (n < 0 || p < 0){
+            throw new ArithmeticException("n and p should be non-negative");
+        }
+        else {
+            int product = (int) Math.pow(n, p);
+//        System.out.println(product);
+            return product;
+        }
+    }
+}
+
+class Main {
 
     public static void main(String[] args) {
-	// write your code here
+
+
+
+        Scanner in = new Scanner(System.in);
+        int t = in.nextInt();
+        while (t-- > 0) {
+
+            int n = in.nextInt();
+            int p = in.nextInt();
+            Calculator myCalculator = new Calculator();
+            try {
+                int ans = myCalculator.power(n, p);
+                System.out.println(ans);
+            }
+            catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        in.close();
     }
 }
